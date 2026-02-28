@@ -1,0 +1,3383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skilline – Studying Online is now much easier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      overflow-x: hidden;
+      min-width: 1200px;
+    }
+
+    /* ─── HERO SECTION ─── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 860px;
+      background: #FFF2E1;
+      overflow: hidden;
+    }
+
+    /* curved bottom wave */
+    .hero-curve {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      z-index: 3;
+      line-height: 0;
+    }
+
+    .hero-curve svg {
+      display: block;
+      width: 100%;
+      height: 100px;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      padding: 36px 120px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-diamond {
+      width: 52px;
+      height: 52px;
+      background: #65DAFF;
+      border-radius: 10px;
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-diamond span {
+      transform: rotate(-45deg);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #113C49;
+    }
+
+    .logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      color: #113C49;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      margin-left: auto;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #252641;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-left: 52px;
+    }
+
+    .btn-login {
+      width: 140px;
+      height: 54px;
+      background: #fff;
+      border-radius: 80px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #6C6C6C;
+      box-shadow: 0 20px 24px rgba(0,0,0,0.04);
+    }
+
+    .btn-signup {
+      width: 140px;
+      height: 54px;
+      background: #F48C06;
+      border-radius: 80px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    /* ─── HERO LAYOUT ─── */
+    .hero-body {
+      position: relative;
+      width: 100%;
+      height: 780px;
+    }
+
+    /* LEFT TEXT */
+    .hero-left {
+      position: absolute;
+      left: 120px;
+      top: 80px;
+      z-index: 5;
+      width: 440px;
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 54px;
+      line-height: 1.45;
+      margin-bottom: 22px;
+    }
+
+    .hero-title .orange { color: #F48C06; }
+    .hero-title .dark   { color: #252641; }
+
+    .hero-subtitle {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #464646;
+      margin-bottom: 44px;
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .btn-join {
+      width: 180px;
+      height: 64px;
+      background: #F48C06;
+      border-radius: 80px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .watch-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+    }
+
+    .play-btn {
+      width: 64px;
+      height: 64px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 2px 20px 60px rgba(61,155,185,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .watch-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #252641;
+      white-space: nowrap;
+    }
+
+    /* ─── RIGHT PHOTO AREA ─── */
+    /* Girl is absolutely positioned in right half, tall, bleeds off bottom */
+    .hero-right {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .hero-img {
+      position: absolute;
+      bottom: -20px;
+      right: 80px;
+      height: 820px;
+      width: auto;
+      object-fit: contain;
+      z-index: 2;
+      filter: drop-shadow(0px 4px 80px rgba(29,28,24,0.15));
+      pointer-events: auto;
+    }
+
+    /* ─── FLOATING CARDS ─── */
+    /* All cards positioned relative to .hero-right which is full page width */
+
+    /* 250k — left of girl, upper body */
+    .card-students {
+      position: absolute;
+      left: 44%;
+      top: 200px;
+      z-index: 6;
+      width: 220px;
+      height: 72px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 14px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+      pointer-events: auto;
+    }
+
+    /* Congrats — right of girl, mid body */
+    .card-congrats {
+      position: absolute;
+      right: 20px;
+      top: 380px;
+      z-index: 6;
+      width: 260px;
+      height: 76px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 14px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+      pointer-events: auto;
+    }
+
+    /* Class card — lower, over her hands/books */
+    .card-class {
+      position: absolute;
+      left: 42%;
+      bottom: 130px;
+      z-index: 6;
+      width: 280px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+      pointer-events: auto;
+    }
+
+    /* Chart icon — top right */
+    .floating-chart {
+      position: absolute;
+      right: 120px;
+      top: 60px;
+      z-index: 6;
+      width: 66px;
+      height: 66px;
+      background: #F3627C;
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(210,77,101,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+    }
+
+    .chart-inner {
+      width: 40px;
+      height: 38px;
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 5px;
+      padding: 6px 6px 5px;
+    }
+
+    .bar {
+      width: 6px;
+      background: #F25471;
+      border-radius: 2px;
+    }
+
+    /* ─── SHARED CARD STYLES ─── */
+    .icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-box.blue   { background: #23BDEE; }
+    .icon-box.orange { background: #F88C3D; }
+
+    .card-label {
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #595959;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+
+    .card-sub {
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: #545567;
+    }
+
+    .check-circle {
+      width: 22px;
+      height: 22px;
+      background: #4EE381;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .class-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #9B7A5E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-online {
+      position: absolute;
+      bottom: 1px;
+      right: 1px;
+      width: 12px;
+      height: 12px;
+      background: #2EBB5E;
+      border-radius: 50%;
+      border: 2px solid #FFF2E1;
+    }
+
+    .btn-join-now {
+      width: 100%;
+      height: 42px;
+      background: #D8587E;
+      border-radius: 80px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+    }
+
+    /* ── TRUSTED SECTION ── */
+    .trusted {
+      background: #fff;
+      padding: 60px 100px 70px;
+      text-align: center;
+    }
+
+    .trusted-title {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #B2B2BF;
+      letter-spacing: 0.02em;
+      margin-bottom: 40px;
+    }
+
+    .trusted-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+    }
+
+    .trusted-logos svg text,
+    .trusted-logos svg {
+      opacity: 1;
+    }
+
+    .logo-airbnb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #C8C8D4;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .logo-amazon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0px;
+      color: #C8C8D4;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="logo" href="#">
+      <div class="logo-diamond"><span>S</span></div>
+      <span class="logo-text">Skilline</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+    <div class="nav-actions">
+  <button class="btn-login" onclick="window.location.href='login.html'">Login</button>
+  <button class="btn-signup" onclick="window.location.href='register.html'">Sign Up</button>
+</div>
+  </nav>
+
+  <!-- ── HERO BODY ── -->
+  <div class="hero-body">
+
+    <!-- Left text -->
+    <div class="hero-left">
+      <h1 class="hero-title">
+        <span class="orange">Studying</span> <span class="dark">Online is now<br>much easier</span>
+      </h1>
+      <p class="hero-subtitle">
+        Skilline is an interesting platform that will teach<br>
+        you in more an interactive way
+      </p>
+      <div class="hero-cta">
+        <button class="btn-join">Join for free</button>
+        <div class="watch-wrap">
+          <div class="play-btn">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none">
+              <path d="M2 1.5L16.5 10L2 18.5V1.5Z" fill="#23BDEE"/>
+            </svg>
+          </div>
+          <span class="watch-text">Watch how it works</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: photo + floating cards -->
+    <div class="hero-right">
+
+      <img
+        class="hero-img"
+        src="student.png"
+        alt="Student"
+      />
+
+      <!-- Chart icon (top right) -->
+      <div class="floating-chart">
+        <div class="chart-inner">
+          <div class="bar" style="height:12px;"></div>
+          <div class="bar" style="height:22px;"></div>
+          <div class="bar" style="height:9px;"></div>
+        </div>
+      </div>
+
+      <!-- 250k card -->
+      <div class="card-students">
+        <div class="icon-box blue">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="4" width="24" height="22" rx="3" stroke="white" stroke-width="2.2" fill="none"/>
+            <path d="M8 2V6" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M20 2V6" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M2 11H26" stroke="white" stroke-width="2.2"/>
+            <circle cx="9"  cy="17" r="1.3" fill="white"/>
+            <circle cx="14" cy="17" r="1.3" fill="white"/>
+            <circle cx="19" cy="17" r="1.3" fill="white"/>
+            <circle cx="9"  cy="22" r="1.3" fill="white"/>
+            <circle cx="14" cy="22" r="1.3" fill="white"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-label">250k</div>
+          <div class="card-sub">Assisted Student</div>
+        </div>
+      </div>
+
+      <!-- Congrats card -->
+      <div class="card-congrats">
+        <div class="icon-box orange">
+          <svg width="26" height="22" viewBox="0 0 28 22" fill="none">
+            <rect x="1" y="1" width="26" height="20" rx="3" stroke="white" stroke-width="2.2" fill="none"/>
+            <path d="M1 6L14 13L27 6" stroke="white" stroke-width="2.2"/>
+          </svg>
+        </div>
+        <div style="flex:1;">
+          <div class="card-label">Congratulations</div>
+          <div class="card-sub">Your admission completed</div>
+        </div>
+        <div class="check-circle">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none">
+            <path d="M1 4.5L4.5 8L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Class card -->
+      <div class="card-class">
+        <div class="class-top">
+          <div class="avatar-wrap">
+            <div class="avatar">
+              <svg width="36" height="42" viewBox="0 0 36 42" fill="none">
+                <circle cx="18" cy="14" r="9" fill="#C9A07C"/>
+                <ellipse cx="18" cy="36" rx="15" ry="10" fill="#C9A07C"/>
+              </svg>
+            </div>
+            <div class="avatar-online"></div>
+          </div>
+          <div>
+            <div class="card-label">User Experience Class</div>
+            <div class="card-sub">Today at 12.00 PM</div>
+          </div>
+        </div>
+        <button class="btn-join-now">Join Now</button>
+      </div>
+
+    </div><!-- /hero-right -->
+  </div><!-- /hero-body -->
+
+  <div class="hero-curve">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C360,80 1080,80 1440,0 L1440,80 L0,80 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ── TRUSTED SECTION ── -->
+<section class="trusted">
+  <p class="trusted-title">Trusted by 5,000+ Companies Worldwide</p>
+  <div class="trusted-logos">
+    <!-- Google -->
+    <svg height="36" viewBox="0 0 90 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text y="26" font-family="'Product Sans', Arial, sans-serif" font-size="28" font-weight="400" fill="#C8C8D4">Google</text>
+    </svg>
+    <!-- Netflix -->
+    <svg height="36" viewBox="0 0 110 30" fill="none">
+      <text y="26" font-family="Arial Black, sans-serif" font-size="24" font-weight="900" fill="#C8C8D4" letter-spacing="1">NETFLIX</text>
+    </svg>
+    <!-- Airbnb -->
+    <div class="logo-airbnb">
+      <svg height="28" viewBox="0 0 24 28" fill="#C8C8D4" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C10.5 2 9.5 3.2 9.5 4.5C9.5 5.8 10.5 7 12 7C13.5 7 14.5 5.8 14.5 4.5C14.5 3.2 13.5 2 12 2ZM5.5 10.5C4 10.5 3 11.7 3 13C3 15.5 5.5 18 8.5 20C9.5 20.7 10.8 21.5 12 22.5C13.2 21.5 14.5 20.7 15.5 20C18.5 18 21 15.5 21 13C21 11.7 20 10.5 18.5 10.5C17.3 10.5 16.2 11.3 15.5 12.5C14.8 11.3 13.5 10.5 12 10.5C10.5 10.5 9.2 11.3 8.5 12.5C7.8 11.3 6.7 10.5 5.5 10.5Z"/>
+      </svg>
+      <span>airbnb</span>
+    </div>
+    <!-- Amazon -->
+    <div class="logo-amazon">
+      <span>amazon</span>
+      <svg width="60" height="10" viewBox="0 0 60 10">
+        <path d="M2 5 Q30 12 58 5" stroke="#C8C8D4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M52 2 L58 5 L52 8" stroke="#C8C8D4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <!-- Facebook -->
+    <svg height="36" viewBox="0 0 120 30" fill="none">
+      <text y="26" font-family="'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="400" fill="#C8C8D4">facebook.</text>
+    </svg>
+    <!-- Grab -->
+    <svg height="36" viewBox="0 0 70 30" fill="none">
+      <text y="26" font-family="'Courier New', monospace" font-size="26" font-weight="700" fill="#C8C8D4">Grab</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ── ALL IN ONE SECTION ── -->
+<section class="aio">
+  <h2 class="aio-title"><span class="aio-dark">All-In-One </span><span class="aio-orange">Cloud Software.</span></h2>
+  <p class="aio-sub">Skilline is one powerful online software suite that combines all the<br>tools needed to run a successful school or office.</p>
+  <div class="aio-cards">
+
+    <div class="aio-card">
+      <div class="aio-icon aio-icon--blue">
+        <svg width="30" height="34" viewBox="0 0 30 34" fill="none">
+          <rect x="3" y="1" width="24" height="30" rx="3" stroke="white" stroke-width="2.2" fill="none"/>
+          <path d="M9 10H21" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M9 16H21" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M9 22H16" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+          <rect x="10" y="0" width="10" height="5" rx="1.5" fill="white"/>
+        </svg>
+      </div>
+      <h3 class="aio-card-title">Online Billing,<br>Invoicing, & Contracts</h3>
+      <p class="aio-card-text">Simple and secure control of your organization's financial and legal transactions. Send customized invoices and contracts</p>
+    </div>
+
+    <div class="aio-card">
+      <div class="aio-icon aio-icon--orange">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect x="2" y="4" width="28" height="26" rx="3" stroke="white" stroke-width="2.2" fill="none"/>
+          <path d="M9 2V7" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M23 2V7" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M2 13H30" stroke="white" stroke-width="2.2"/>
+          <circle cx="10" cy="20" r="1.4" fill="white"/>
+          <circle cx="16" cy="20" r="1.4" fill="white"/>
+          <circle cx="22" cy="20" r="1.4" fill="white"/>
+          <circle cx="10" cy="26" r="1.4" fill="white"/>
+          <circle cx="16" cy="26" r="1.4" fill="white"/>
+        </svg>
+      </div>
+      <h3 class="aio-card-title">Easy Scheduling &<br>Attendance Tracking</h3>
+      <p class="aio-card-text">Schedule and reserve classrooms at one campus or multiple campuses. Keep detailed records of student attendance</p>
+    </div>
+
+    <div class="aio-card">
+      <div class="aio-icon aio-icon--cyan">
+        <svg width="36" height="28" viewBox="0 0 36 28" fill="none">
+          <circle cx="11" cy="9" r="5" stroke="white" stroke-width="2.2" fill="none"/>
+          <circle cx="25" cy="9" r="5" stroke="white" stroke-width="2.2" fill="none"/>
+          <path d="M1 27C1 21.477 5.477 17 11 17H13C15 17 16.8 17.7 18 18.8C19.2 17.7 21 17 23 17H25C30.523 17 35 21.477 35 27" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <h3 class="aio-card-title">Customer Tracking</h3>
+      <p class="aio-card-text">Automate and track emails to individuals or groups. Skilline's built-in system helps organize your organization</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .aio {
+    background: #fff;
+    padding: 80px 100px 100px;
+    text-align: center;
+  }
+
+  .aio-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .aio-dark   { color: #252641; }
+  .aio-orange { color: #F48C06; }
+
+  .aio-sub {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.7;
+    margin-bottom: 80px;
+  }
+
+  .aio-cards {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .aio-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 60px rgba(0,0,0,0.07);
+    padding: 70px 36px 48px;
+    width: 320px;
+    text-align: center;
+    position: relative;
+  }
+
+  .aio-icon {
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .aio-icon--blue   { background: #5B72EE; }
+  .aio-icon--orange { background: #F48C06; }
+  .aio-icon--cyan   { background: #23BDEE; }
+
+  .aio-card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #252641;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .aio-card-text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.7;
+  }
+</style>
+
+<!-- ── WHAT IS SKILLINE SECTION ── -->
+<section class="wis">
+  <h2 class="wis-title"><span class="wis-dark">What is </span><span class="wis-orange">Skilline?</span></h2>
+  <p class="wis-sub">Skilline is a platform that allows educators to create online classes whereby they can<br>store the course materials online; manage assignments, quizzes and exams; monitor<br>due dates; grade results and provide students with feedback all in one place.</p>
+
+  <div class="wis-cards">
+
+    <!-- Instructors card -->
+    <div class="wis-card">
+      <img src="instructor.png" alt="For Instructors" class="wis-card-img" />
+      <div class="wis-card-overlay"></div>
+      <div class="wis-card-content">
+        <p class="wis-card-label">FOR INSTRUCTORS</p>
+        <button class="wis-btn wis-btn--outline">Start a class today</button>
+      </div>
+    </div>
+
+    <!-- Students card -->
+    <div class="wis-card">
+      <div class="wis-card-img wis-card-img--dark"></div>
+      <div class="wis-card-overlay"></div>
+      <div class="wis-card-content">
+        <p class="wis-card-label">FOR STUDENTS</p>
+        <button class="wis-btn wis-btn--cyan">Enter access code</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .wis {
+    background: #fff;
+    padding: 90px 100px 100px;
+    text-align: center;
+  }
+
+  .wis-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+
+  .wis-title .wis-dark { color: #252641; }
+  .wis-orange { color: #F48C06; }
+
+  .wis-sub {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.8;
+    margin-bottom: 70px;
+  }
+
+  .wis-cards {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+  }
+
+  .wis-card {
+    position: relative;
+    width: 48%;
+    max-width: 680px;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .wis-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .wis-card-img--dark {
+    width: 100%;
+    height: 100%;
+    background: #0d1b2a;
+    /* students image placeholder — dark scene with people */
+    background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .wis-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 60%, transparent 100%);
+  }
+
+  .wis-card-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 40px;
+    text-align: center;
+  }
+
+  .wis-card-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+    margin-bottom: 18px;
+  }
+
+  .wis-btn {
+    height: 52px;
+    padding: 0 32px;
+    border-radius: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+  }
+
+  .wis-btn--outline {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+
+  .wis-btn--cyan {
+    background: #23BDEE;
+    color: #fff;
+    font-weight: 600;
+  }
+</style>
+
+<!-- ── YOU CAN DO WITH SKILLINE SECTION ── -->
+<section class="ycd">
+  <div class="ycd-left">
+    <div class="ycd-title-wrap">
+      <div class="ycd-ellipse"></div>
+      <h2 class="ycd-title">Everything you can do in a physical classroom, <span class="ycd-orange">you can do with Skilline</span></h2>
+    </div>
+    <p class="ycd-sub">Skilline's school management software helps traditional and online schools manage scheduling, attendance, payments and virtual classrooms all in one secure cloud-based system.</p>
+    <a href="#" class="ycd-link">Learn more</a>
+  </div>
+
+  <div class="ycd-right">
+    <!-- Blue square decoration top-left -->
+    <div class="ycd-deco ycd-deco--blue"></div>
+    <!-- Orange square decoration bottom-right -->
+    <div class="ycd-deco ycd-deco--orange"></div>
+    <!-- Orange small dot -->
+    <div class="ycd-dot"></div>
+    <!-- Classroom image -->
+    <img src="classroom.png" alt="Classroom" class="ycd-img" />
+    <!-- Play button -->
+    <div class="ycd-play">
+      <svg width="18" height="20" viewBox="0 0 18 20" fill="none">
+        <path d="M2 1.5L16.5 10L2 18.5V1.5Z" fill="#23BDEE"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ycd {
+    background: #fff;
+    padding: 80px 100px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  /* LEFT */
+  .ycd-left {
+    width: 460px;
+    flex-shrink: 0;
+  }
+
+  .ycd-title-wrap {
+    position: relative;
+    margin-bottom: 28px;
+  }
+
+  .ycd-ellipse {
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: 55px;
+    height: 55px;
+    background: #F4B767;
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .ycd-title {
+    position: relative;
+    z-index: 1;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #2F327D;
+  }
+
+  .ycd-orange { color: #F48C06; }
+
+  .ycd-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #696984;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+
+  .ycd-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #696984;
+    text-decoration: underline;
+  }
+
+  /* RIGHT */
+  .ycd-right {
+    position: relative;
+    flex: 1;
+    height: 480px;
+  }
+
+  .ycd-img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    max-width: 680px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 2;
+  }
+
+  .ycd-deco {
+    position: absolute;
+    border-radius: 20px;
+    z-index: 1;
+  }
+
+  .ycd-deco--blue {
+    width: 120px;
+    height: 120px;
+    top: 0;
+    left: 0;
+    background: #23BDEE;
+  }
+
+  .ycd-deco--orange {
+    width: 210px;
+    height: 210px;
+    bottom: -20px;
+    right: -20px;
+    background: #F3AC50;
+  }
+
+  .ycd-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #F4B767;
+    border-radius: 50%;
+    left: -40px;
+    top: 50%;
+    z-index: 3;
+  }
+
+  .ycd-play {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 2px 20px 60px rgba(61,155,185,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+</style>
+
+<!-- ── OUR FEATURES SECTION ── -->
+<section class="feat">
+  <h2 class="feat-title"><span class="feat-dark">Our </span><span class="feat-orange">Features</span></h2>
+  <p class="feat-sub">This very extraordinary feature, can make learning activities more efficient</p>
+
+  <div class="feat-body">
+
+    <!-- LEFT: mock video UI -->
+    <div class="feat-ui">
+      <!-- decorations -->
+      <div class="feat-deco feat-deco--green"></div>
+      <div class="feat-deco feat-deco--cyan"></div>
+      <div class="feat-deco feat-deco--red"></div>
+      <div class="feat-deco feat-deco--purple"></div>
+
+      <!-- browser window card -->
+      <div class="feat-window">
+        <div class="feat-window-bar">
+          <span class="feat-dot" style="background:#EE6767"></span>
+          <span class="feat-dot" style="background:#F7C566"></span>
+          <span class="feat-dot" style="background:#5BEB7B"></span>
+        </div>
+        <div class="feat-grid">
+          <!-- Main large: Eveny Howard -->
+          <div class="feat-cell feat-cell--large">
+            <img src="person-eveny.png" alt="Eveny Howard" />
+            <div class="feat-name-bar">
+              <div class="feat-bars"><span></span><span></span><span></span></div>
+              <span class="feat-badge feat-badge--blue">Instructor</span>
+              <span class="feat-name-text">Eveny Howard</span>
+            </div>
+          </div>
+          <!-- Small grid -->
+          <div class="feat-small-grid">
+            <div class="feat-cell">
+              <img src="person-tamara.png" alt="Tamara Clarke" />
+              <div class="feat-name-bar">
+                <div class="feat-bars"><span></span><span></span><span></span></div>
+                <span class="feat-name-text">Tamara Clarke</span>
+              </div>
+            </div>
+            <div class="feat-cell">
+              <img src="person-adam.png" alt="Adam Levin" />
+              <div class="feat-name-bar">
+                <div class="feat-bars"><span></span><span></span><span></span></div>
+                <span class="feat-name-text">Adam Levin</span>
+              </div>
+            </div>
+            <div class="feat-cell">
+              <!-- hand raise circle -->
+              <div class="feat-hand">
+                <div class="feat-hand-outer"></div>
+                <div class="feat-hand-inner">
+                  <svg width="22" height="26" viewBox="0 0 22 26" fill="none">
+                    <path d="M11 1v14M7 5v10M15 5v10M3 11v6a8 8 0 0016 0v-6" stroke="#F48C06" stroke-width="2.2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="feat-cell">
+              <img src="person-humbert.png" alt="Humbert Holland" />
+              <div class="feat-name-bar">
+                <div class="feat-bars"><span></span><span></span><span></span></div>
+                <span class="feat-name-text">Humbert Holland</span>
+              </div>
+            </div>
+            <div class="feat-cell feat-cell--highlight">
+              <img src="person-patricia.png" alt="Patricia Mendoza" />
+              <div class="feat-name-bar">
+                <div class="feat-bars"><span></span><span></span><span></span></div>
+                <span class="feat-name-text">Patricia Mendoza</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom buttons -->
+        <div class="feat-btns">
+          <button class="feat-btn feat-btn--present">Present</button>
+          <button class="feat-btn feat-btn--call">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M13 10.5c0 .3-.07.6-.2.9-.13.3-.3.57-.53.8-.37.4-.78.6-1.2.6-.32 0-.66-.08-1.03-.25-.37-.17-.74-.4-1.1-.7a18.3 18.3 0 01-1.06-1.02A18 18 0 016.84 9.8c-.3-.36-.52-.72-.68-1.07C6 8.36 5.92 8 5.92 7.66c0-.32.07-.63.2-.9.13-.28.33-.54.6-.76.32-.26.66-.38 1.02-.38.14 0 .28.03.4.09.13.06.25.15.34.28l1.18 1.66c.1.12.17.24.22.35.05.1.08.2.08.3 0 .12-.03.24-.1.36-.06.12-.15.24-.27.36l-.36.37c-.05.05-.07.12-.07.19 0 .04 0 .07.02.11.02.04.04.07.05.1.1.18.27.42.52.7.26.3.53.6.83.88.3.28.58.53.87.75.27.2.5.35.69.43.03.01.06.03.1.04.04.01.08.02.12.02.08 0 .14-.03.2-.08l.36-.37c.13-.13.25-.22.37-.28.12-.06.23-.09.36-.09.1 0 .2.02.31.07.11.05.23.12.35.22l1.68 1.2c.13.09.22.2.28.34.05.14.08.28.08.43z" fill="white"/>
+            </svg>
+            Call
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: feature list -->
+    <div class="feat-right">
+      <h3 class="feat-right-title">A <span class="feat-cyan">user interface</span> designed for the classroom</h3>
+      <ul class="feat-list">
+        <li class="feat-item">
+          <div class="feat-icon">
+            <div class="feat-icon-grid">
+              <span style="background:#2F327D"></span><span style="background:#2F327D"></span>
+              <span style="background:#2F327D"></span><span style="background:#F48C06"></span>
+            </div>
+          </div>
+          <p>Teachers don't get lost in the grid view and have a dedicated Podium space.</p>
+        </li>
+        <li class="feat-item">
+          <div class="feat-icon">
+            <div class="feat-icon-overlap">
+              <span class="feat-sq-back" style="background:#F48C06"></span>
+              <span class="feat-sq-front" style="background:#2F327D"></span>
+            </div>
+          </div>
+          <p>TA's and presenters can be moved to the front of the class.</p>
+        </li>
+        <li class="feat-item">
+          <div class="feat-icon">
+            <svg width="32" height="28" viewBox="0 0 32 28" fill="none">
+              <circle cx="10" cy="8" r="5" stroke="#2F327D" stroke-width="2" fill="none"/>
+              <circle cx="22" cy="8" r="5" stroke="#2F327D" stroke-width="2" fill="none"/>
+              <path d="M1 26c0-5 4-9 9-9h2c2 0 3.8.7 5 1.8C18.2 17.7 20 17 22 17h2c5 0 9 4 9 9" stroke="#2F327D" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          <p>Teachers can easily see all students and class data at one time.</p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .feat {
+    background: #fff;
+    padding: 80px 100px;
+    text-align: center;
+  }
+
+  .feat-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .feat-dark   { color: #252641; }
+  .feat-orange { color: #F48C06; }
+
+  .feat-sub {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+    color: #696984;
+    margin-bottom: 60px;
+  }
+
+  .feat-body {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    text-align: left;
+  }
+
+  /* ── LEFT UI ── */
+  .feat-ui {
+    position: relative;
+    width: 560px;
+    flex-shrink: 0;
+  }
+
+  /* decorations */
+  .feat-deco {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .feat-deco--green  { width: 120px; height: 120px; background: #33EFA0; top: -20px; left: 30px; }
+  .feat-deco--cyan   { width: 22px;  height: 22px;  background: #33D9EF; top: -10px; left: 160px; }
+  .feat-deco--red    { width: 22px;  height: 22px;  background: #F56666; bottom: 60px; left: 0px; }
+  .feat-deco--purple { width: 200px; height: 200px; background: #5B61EB; bottom: -20px; right: 60px; border-radius: 50%; z-index: 0; }
+
+  /* browser window */
+  .feat-window {
+    position: relative;
+    z-index: 2;
+    background: rgba(244,244,244,0.7);
+    backdrop-filter: blur(40px);
+    border-radius: 16px;
+    padding: 12px;
+    margin-top: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+
+  .feat-window-bar {
+    display: flex;
+    gap: 8px;
+    padding: 6px 8px 10px;
+  }
+
+  .feat-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .feat-grid {
+    display: flex;
+    gap: 8px;
+  }
+
+  /* large cell */
+  .feat-cell--large {
+    width: 240px;
+    flex-shrink: 0;
+  }
+
+  .feat-cell {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ddd;
+  }
+
+  .feat-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .feat-cell--large { height: 220px; }
+
+  /* small grid */
+  .feat-small-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .feat-small-grid .feat-cell {
+    height: 106px;
+  }
+
+  /* hand raise cell */
+  .feat-hand {
+    width: 100%;
+    height: 106px;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feat-hand-outer {
+    width: 70px; height: 70px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .feat-hand-inner {
+    width: 54px; height: 54px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 2px 10px 34px rgba(15,19,39,0.12);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* name bar overlay */
+  .feat-name-bar {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    background: rgba(201,211,231,0.45);
+    backdrop-filter: blur(6px);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 6px;
+  }
+
+  .feat-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5px;
+    flex-shrink: 0;
+  }
+  .feat-bars span {
+    width: 2px;
+    background: #fff;
+    border-radius: 1px;
+  }
+  .feat-bars span:nth-child(1) { height: 4px; }
+  .feat-bars span:nth-child(2) { height: 6px; }
+  .feat-bars span:nth-child(3) { height: 8px; }
+
+  .feat-badge {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 4px;
+    padding: 1px 4px;
+  }
+  .feat-badge--blue { background: #3465E1; }
+
+  .feat-name-text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* highlight cell (Patricia - purple circle behind) */
+  .feat-cell--highlight {
+    position: relative;
+    z-index: 3;
+  }
+
+  /* buttons */
+  .feat-btns {
+    display: flex;
+    gap: 12px;
+    padding: 12px 8px 8px;
+  }
+
+  .feat-btn {
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 40px;
+    border: none;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .feat-btn--present {
+    background: #3465E1;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(52,101,225,0.3);
+  }
+
+  .feat-btn--call {
+    background: #E13468;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(202,47,93,0.3);
+  }
+
+  /* ── RIGHT ── */
+  .feat-right {
+    flex: 1;
+  }
+
+  .feat-right-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    color: #2F327D;
+    line-height: 1.5;
+    margin-bottom: 36px;
+  }
+
+  .feat-cyan { color: #23BDEE; }
+
+  .feat-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .feat-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .feat-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+  }
+
+  .feat-icon {
+    width: 52px;
+    height: 52px;
+    background: #FBFBFB;
+    border-radius: 50%;
+    box-shadow: 0 15px 44px rgba(13,15,28,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feat-icon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+  .feat-icon-grid span {
+    width: 11px; height: 11px;
+    border-radius: 2px;
+    display: block;
+  }
+
+  .feat-icon-overlap {
+    position: relative;
+    width: 26px;
+    height: 26px;
+  }
+  .feat-sq-back {
+    position: absolute;
+    width: 18px; height: 18px;
+    border-radius: 2px;
+    top: 0; left: 0;
+    display: block;
+  }
+  .feat-sq-front {
+    position: absolute;
+    width: 18px; height: 18px;
+    border-radius: 2px;
+    bottom: 0; right: 0;
+    display: block;
+  }
+</style>
+
+<!-- ── TOOLS SECTION ── -->
+<section class="tools">
+  <div class="tools-left">
+    <h2 class="tools-title"><span class="tools-orange">Tools</span> For Teachers<br>And Learners</h2>
+    <p class="tools-sub">Class has a dynamic set of teaching tools built to be deployed and used during class. Teachers can handout assignments in real-time for students to complete and submit.</p>
+  </div>
+
+  <div class="tools-right">
+    <!-- dot grid pattern -->
+    <div class="tools-dots"></div>
+
+    <!-- red circle behind student -->
+    <div class="tools-red-circle"></div>
+
+    <!-- decorative dots -->
+    <div class="tools-dot tools-dot--green"></div>
+    <div class="tools-dot tools-dot--orange"></div>
+    <div class="tools-dot tools-dot--purple"></div>
+    <div class="tools-dot tools-dot--teal"></div>
+
+    <!-- student image -->
+    <img src="tools-student.png" alt="Student" class="tools-img" />
+
+    <!-- floating icon left (bar chart) -->
+    <div class="tools-icon tools-icon--left" style="transform: rotate(-12deg);">
+      <div class="tools-icon-outer">
+        <div class="tools-icon-inner">
+          <svg width="32" height="30" viewBox="0 0 32 30" fill="none">
+            <rect x="0" y="12" width="8" height="18" rx="2" fill="#545AE8"/>
+            <rect x="12" y="6" width="8" height="24" rx="2" fill="#F48C06"/>
+            <rect x="24" y="0" width="8" height="30" rx="2" fill="#545AE8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- floating icon right (users/grid) -->
+    <div class="tools-icon tools-icon--right" style="transform: rotate(10deg);">
+      <div class="tools-icon-outer">
+        <div class="tools-icon-inner">
+          <svg width="34" height="28" viewBox="0 0 34 28" fill="none">
+            <rect x="0" y="0" width="14" height="12" rx="2" fill="#545AE8"/>
+            <rect x="20" y="0" width="14" height="12" rx="2" fill="#545AE8"/>
+            <rect x="0" y="16" width="14" height="12" rx="2" fill="#545AE8"/>
+            <rect x="20" y="16" width="14" height="12" rx="2" fill="#545AE8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tools {
+    background: #fff;
+    padding: 80px 120px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  /* LEFT */
+  .tools-left {
+    width: 420px;
+    flex-shrink: 0;
+  }
+
+  .tools-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: #2F327D;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .tools-orange { color: #F48C06; }
+
+  .tools-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+  }
+
+  /* RIGHT */
+  .tools-right {
+    position: relative;
+    flex: 1;
+    height: 520px;
+  }
+
+  /* dot grid */
+  .tools-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #DCE2EE 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
+    transform: rotate(-8deg);
+    opacity: 0.9;
+    border-radius: 10px;
+  }
+
+  /* big red circle */
+  .tools-red-circle {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: #FF6A6A;
+    border-radius: 50%;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-20%);
+    z-index: 1;
+  }
+
+  /* student image */
+  .tools-img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-30%);
+    height: 500px;
+    width: auto;
+    object-fit: contain;
+    z-index: 2;
+  }
+
+  /* colored dots */
+  .tools-dot {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 3;
+  }
+  .tools-dot--green  { width: 14px; height: 14px; background: #6BF0A8; top: 20px;  right: 100px; }
+  .tools-dot--orange { width: 18px; height: 18px; background: #FF9A7A; bottom: 160px; left: 20px; }
+  .tools-dot--purple { width: 16px; height: 16px; background: #8C7AFF; bottom: 50px; right: 30px; }
+  .tools-dot--teal   { width: 16px; height: 16px; background: #6BF0A8; top: 60px;   left: 120px; }
+
+  /* floating icon boxes */
+  .tools-icon {
+    position: absolute;
+    z-index: 4;
+  }
+
+  .tools-icon--left  { top: 130px; left: 30px; }
+  .tools-icon--right { top: 160px; right: 40px; }
+
+  .tools-icon-outer {
+    width: 86px;
+    height: 86px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 14px 44px rgba(86,91,221,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tools-icon-inner {
+    width: 62px;
+    height: 62px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 16px 44px rgba(13,15,28,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<!-- ── ASSESSMENTS SECTION ── -->
+<section class="quiz">
+  <div class="quiz-left">
+    <!-- decorations -->
+    <div class="quiz-deco quiz-deco--purple"></div>
+    <div class="quiz-deco quiz-deco--orange"></div>
+    <div class="quiz-deco quiz-deco--green"></div>
+    <div class="quiz-deco quiz-deco--pink"></div>
+
+    <!-- the whole card group image -->
+    <img src="quiz-card.png" alt="Quiz Card" class="quiz-img" />
+  </div>
+
+  <div class="quiz-right">
+    <h2 class="quiz-title">Assessments,<br><span class="quiz-orange">Quizzes</span>, Tests</h2>
+    <p class="quiz-sub">Easily launch live assignments, quizzes, and tests. Student results are automatically entered in the online gradebook.</p>
+  </div>
+</section>
+
+<style>
+  .quiz {
+    background: #fff;
+    padding: 80px 120px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  /* LEFT */
+  .quiz-left {
+    position: relative;
+    width: 500px;
+    height: 560px;
+    flex-shrink: 0;
+  }
+
+  .quiz-deco {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .quiz-deco--purple { width: 90px; height: 90px; background: #687EF3; top: 20px; left: 0px; }
+  .quiz-deco--orange { width: 20px; height: 20px; background: #F3A268; top: 0px;  left: 110px; }
+  .quiz-deco--green  { width: 18px; height: 18px; background: #34E7A5; bottom: 30px; left: 20px; }
+  .quiz-deco--pink   { width: 14px; height: 14px; background: #F3538C; top: 50%;  right: 0px; }
+
+  .quiz-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* RIGHT */
+  .quiz-right {
+    flex: 1;
+  }
+
+  .quiz-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: #2F327D;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .quiz-orange { color: #F48C06; }
+
+  .quiz-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    max-width: 480px;
+  }
+</style>
+
+<!-- ── CLASS MANAGEMENT / GRADEBOOK SECTION ── -->
+<section class="mgmt">
+  <div class="mgmt-left">
+    <h2 class="mgmt-title"><span class="mgmt-orange">Class Management</span><br>Tools for Educators</h2>
+    <p class="mgmt-sub">Class provides tools to help run and manage the class such as Class Roster, Attendance, and more. With the Gradebook, teachers can review and grade tests and quizzes in real-time.</p>
+  </div>
+
+  <div class="mgmt-right">
+    <!-- blue circles top right decoration -->
+    <div class="mgmt-circ mgmt-circ--lg"></div>
+    <div class="mgmt-circ mgmt-circ--sm"></div>
+
+    <!-- star floating badge top left -->
+    <div class="mgmt-star-badge">
+      <div class="mgmt-star-outer"><div class="mgmt-star-inner">⭐</div></div>
+    </div>
+
+    <!-- book floating badge top right -->
+    <div class="mgmt-book-badge">
+      <div class="mgmt-book-outer"><div class="mgmt-book-inner">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M4 4h10v20H4a2 2 0 01-2-2V6a2 2 0 012-2z" fill="#3491E7"/>
+          <path d="M14 4h10a2 2 0 012 2v16a2 2 0 01-2 2H14V4z" fill="#3491E7" opacity="0.6"/>
+        </svg>
+      </div></div>
+    </div>
+
+    <!-- main gradebook card -->
+    <div class="mgmt-card">
+      <!-- header bar -->
+      <div class="mgmt-card-header">GradeBook</div>
+
+      <!-- grade rows -->
+      <div class="mgmt-card-body">
+        <!-- Row 1: Humbert - cyan bar - 100 -->
+        <div class="mgmt-row">
+          <div class="mgmt-bar mgmt-bar--cyan" style="width:30%"></div>
+          <div class="mgmt-avatar-wrap">
+            <img src="person-humbert.png" class="mgmt-avatar" alt="student"/>
+            <span class="mgmt-star-mini">⭐</span>
+          </div>
+          <span class="mgmt-score" style="background:#CDF3FF; color:#43869B;">100</span>
+          <!-- Row 3: Adam - blue bar - 98 -->
+          <div class="mgmt-bar mgmt-bar--blue" style="width:60%; margin-left:40px;"></div>
+          <div class="mgmt-avatar-wrap" style="margin-left:-20px;">
+            <img src="person-adam.png" class="mgmt-avatar" alt="student"/>
+          </div>
+          <span class="mgmt-score" style="background:#CDE4FF; color:#486F9C;">98</span>
+        </div>
+
+        <!-- Row 2: Tamara - green bar - 85 -->
+        <div class="mgmt-row" style="margin-top: 30px;">
+          <div class="mgmt-bar mgmt-bar--green" style="width:50%"></div>
+          <div class="mgmt-avatar-wrap">
+            <img src="person-tamara.png" class="mgmt-avatar" alt="student"/>
+          </div>
+          <span class="mgmt-score" style="background:#D7FFCD; color:#4E8C3F;">85</span>
+          <!-- Row 4: Patricia - red bar - 75 -->
+          <div class="mgmt-bar mgmt-bar--red" style="width:30%; margin-left:20px;"></div>
+          <div class="mgmt-avatar-wrap" style="margin-left:-20px;">
+            <img src="person-patricia.png" class="mgmt-avatar" alt="student"/>
+          </div>
+          <span class="mgmt-score" style="background:#FFCDCD; color:#9E5555;">75</span>
+        </div>
+
+        <!-- Export button -->
+        <div style="display:flex; justify-content:flex-end; margin-top:28px;">
+          <button class="mgmt-export">Export</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- wave lines bottom left -->
+    <div class="mgmt-waves">
+      <div class="mgmt-wave"></div>
+      <div class="mgmt-wave"></div>
+      <div class="mgmt-wave"></div>
+    </div>
+
+    <!-- blue rect bottom left decoration -->
+    <div class="mgmt-rect-deco"></div>
+  </div>
+</section>
+
+<!-- ── ONE-ON-ONE DISCUSSIONS SECTION ── -->
+<section class="ood">
+
+  <!-- LEFT: layered UI mockup -->
+  <div class="ood-left">
+
+    <!-- Back window (blurred/faded) -->
+    <div class="ood-back-window">
+      <div class="ood-back-bar">
+        <span class="ood-dot" style="background:#EE6767"></span>
+        <span class="ood-dot" style="background:#F7C566"></span>
+        <span class="ood-dot" style="background:#5BEB7B"></span>
+      </div>
+      <div class="ood-back-grid">
+        <div class="ood-back-cell ood-back-cell--teacher"></div>
+        <div class="ood-back-cell"></div>
+      </div>
+    </div>
+
+    <!-- Blue ring decoration top-right -->
+    <div class="ood-ring"></div>
+
+    <!-- Orange triangle decoration -->
+    <div class="ood-triangle"></div>
+
+    <!-- Blue rectangle decoration left -->
+    <div class="ood-blue-rect"></div>
+
+    <!-- Users icon circle badge -->
+    <div class="ood-badge">
+      <div class="ood-badge-outer">
+        <div class="ood-badge-inner">
+          <svg width="45" height="36" viewBox="0 0 45 36" fill="none">
+            <path d="M16.5 16.5C20.64 16.5 24 13.14 24 9C24 4.86 20.64 1.5 16.5 1.5C12.36 1.5 9 4.86 9 9C9 13.14 12.36 16.5 16.5 16.5ZM16.5 21C11.49 21 1.5 23.505 1.5 28.5V33H31.5V28.5C31.5 23.505 21.51 21 16.5 21Z" fill="#2C93F1"/>
+            <path d="M30.75 16.5C34.065 16.5 36.75 13.815 36.75 10.5C36.75 7.185 34.065 4.5 30.75 4.5C27.435 4.5 24.75 7.185 24.75 10.5C24.75 13.815 27.435 16.5 30.75 16.5ZM30.75 21C28.785 21 27.045 21.48 25.545 22.23C28.245 24.135 30 26.895 30 28.5V33H43.5V28.5C43.5 23.505 33.51 21 28.5 21" fill="#2C93F1" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Front window (main card) -->
+    <div class="ood-front-window">
+      <div class="ood-front-bar">
+        <span class="ood-dot" style="background:#EE6767"></span>
+        <span class="ood-dot" style="background:#F7C566"></span>
+        <span class="ood-dot" style="background:#5BEB7B"></span>
+      </div>
+
+      <!-- divider line + two video cells -->
+      <div class="ood-videos">
+        <!-- Teacher (left) -->
+        <div class="ood-video ood-video--teacher">
+          <img src="person-eveny.png" alt="Teacher" />
+        </div>
+
+        <!-- vertical divider -->
+        <div class="ood-divider"></div>
+
+        <!-- Student (right) - Patricia -->
+        <div class="ood-video ood-video--student">
+          <img src="person-patricia.png" alt="Patricia Mendoza" />
+          <div class="ood-name-bar">
+            <div class="ood-bars">
+              <span style="height:4px"></span>
+              <span style="height:7px"></span>
+              <span style="height:10px"></span>
+            </div>
+            <span class="ood-name-text">Patricia Mendoza</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer row -->
+      <div class="ood-footer">
+        <div class="ood-footer-left">
+          <p class="ood-private-label">Private Discussion</p>
+          <p class="ood-private-sub">Your video can't be seen by others</p>
+        </div>
+        <button class="ood-end-btn">End Discussion</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: text content -->
+  <div class="ood-right">
+    <h2 class="ood-title">
+      <span class="ood-dark">One-on-One</span><br>
+      <span class="ood-orange">Discussions</span>
+    </h2>
+    <p class="ood-sub">
+      Teachers and teacher assistants can talk with students privately without leaving the Zoom environment.
+    </p>
+  </div>
+
+</section>
+
+<!-- See more features button (centered below section) -->
+<div class="ood-more-wrap">
+  <button class="ood-more-btn">See more features</button>
+</div>
+
+<!-- ── INTEGRATIONS SECTION ── -->
+<section class="integ">
+  <div class="integ-left">
+    <div class="integ-grid">
+      <div class="integ-logo-cell">
+        <img src="image_2.png" alt="OneDrive" class="integ-logo" />
+        <span class="integ-logo-label">OneDrive</span>
+      </div>
+      <div class="integ-logo-cell">
+        <img src="image_3.png" alt="Dropbox" class="integ-logo integ-logo--dropbox" />
+      </div>
+      <div class="integ-logo-cell">
+        <img src="image_5.png" alt="Google Drive" class="integ-logo" />
+        <span class="integ-logo-label">Google Drive</span>
+      </div>
+      <div class="integ-logo-cell">
+        <img src="image_6.png" alt="Microsoft Teams" class="integ-logo integ-logo--teams" />
+      </div>
+    </div>
+  </div>
+
+  <div class="integ-right">
+    <div class="integ-label-row">
+      <div class="integ-line"></div>
+      <span class="integ-label">INTEGRATIONS</span>
+    </div>
+    <h2 class="integ-title">200+ educational tools and platform <span class="integ-orange">integrations</span></h2>
+    <p class="integ-sub">Skilline has every tool your classroom needs and comes pre-integrated with more than 200+ tools, student information systems (SIS), and education platforms.</p>
+    <button class="integ-btn">See All Integrations</button>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS SECTION ── -->
+<section class="testi">
+
+  <!-- LEFT: text content -->
+  <div class="testi-left">
+    <div class="testi-label-row">
+      <div class="testi-line"></div>
+      <span class="testi-label">TESTIMONIAL</span>
+    </div>
+
+    <h2 class="testi-title">What They Say?</h2>
+
+    <p class="testi-body">Skilline has got more than 100k positive ratings from our users around the world.</p>
+    <p class="testi-body">Some of the students and teachers were greatly helped by the Skilline.</p>
+    <p class="testi-body">Are you too? Please give your assessment</p>
+
+    <div class="testi-cta">
+      <button class="testi-write-btn">
+        Write your assessment
+        <div class="testi-arrow-circle">
+          <svg width="18" height="14" viewBox="0 0 22 16" fill="none">
+            <path d="M1 8H21M21 8L14 1M21 8L14 15" stroke="#F48C06" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- RIGHT: photo + review card -->
+  <div class="testi-right">
+
+    <!-- Navigation arrow -->
+    <div class="testi-nav-btn">
+      <svg width="14" height="22" viewBox="0 0 14 22" fill="none">
+        <path d="M2 2L12 11L2 20" stroke="#1EA4CE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Photo card -->
+    <div class="testi-photo-card">
+      <img src="smiling-woman-with-afro-posing-pink-sweater_1.png" alt="Gloria Rose" class="testi-photo" />
+    </div>
+
+    <!-- Review card -->
+    <div class="testi-review-card">
+      <div class="testi-review-accent"></div>
+      <div class="testi-review-divider"></div>
+      <div class="testi-review-content">
+        <p class="testi-review-text">"Thank you so much for your help. It's exactly what I've been looking for. You won't regret it. It really saves me time and effort. Skilline is exactly what our business has been lacking."</p>
+        <div class="testi-review-footer">
+          <span class="testi-reviewer-name">Gloria Rose</span>
+          <div class="testi-review-rating">
+            <div class="testi-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <span class="testi-yelp">12 reviews at Yelp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .testi {
+    background: #fff;
+    padding: 90px 120px 160px;
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+    overflow: visible;
+  }
+
+  /* ── LEFT ── */
+  .testi-left {
+    width: 460px;
+    flex-shrink: 0;
+    padding-top: 10px;
+  }
+
+  .testi-label-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .testi-line {
+    width: 80px;
+    height: 1px;
+    background: #525596;
+    flex-shrink: 0;
+  }
+
+  .testi-label {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #525596;
+    letter-spacing: 0.2em;
+  }
+
+  .testi-title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    color: #2F327D;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+
+  .testi-body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: #696984;
+    margin-bottom: 18px;
+  }
+
+  .testi-cta {
+    margin-top: 36px;
+  }
+
+  .testi-write-btn {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #F48C06;
+    border-radius: 80px;
+    padding: 0 0 0 28px;
+    height: 80px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #F48C06;
+    letter-spacing: 0.02em;
+    width: 403px;
+    justify-content: space-between;
+  }
+
+  .testi-arrow-circle {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #F48C06;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: -1px;
+  }
+
+  /* ── RIGHT ── */
+  .testi-right {
+    position: relative;
+    flex: 1;
+    height: 700px;
+  }
+
+  .testi-photo-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 560px;
+    height: 580px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #C4C4C4;
+    z-index: 1;
+  }
+
+  .testi-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  .testi-nav-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    left: 500px;
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 60px rgba(41, 44, 124, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    cursor: pointer;
+  }
+
+  .testi-review-card {
+    position: absolute;
+    bottom: -60px;
+    left: 70px;
+    width: 480px;
+    background: #fff;
+    box-shadow: 2px 4px 60px rgba(41, 44, 124, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 3;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .testi-review-accent {
+    width: 10px;
+    background: #F77766;
+    flex-shrink: 0;
+    border-radius: 16px 0 0 16px;
+  }
+
+  .testi-review-divider {
+    width: 1px;
+    background: #BDBDD1;
+    flex-shrink: 0;
+    margin: 24px 0;
+  }
+
+  .testi-review-content {
+    padding: 20px 20px 18px 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .testi-review-text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+    color: #5F5F7E;
+  }
+
+  .testi-review-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .testi-reviewer-name {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #5F5F7E;
+  }
+
+  .testi-review-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .testi-stars {
+    display: flex;
+    gap: 3px;
+    color: #FBA333;
+    font-size: 14px;
+  }
+
+  .testi-yelp {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #80819A;
+    letter-spacing: 0.02em;
+  }
+</style>
+
+<!-- ── NEWS SECTION ── -->
+<section class="news">
+
+  <div class="news-header">
+    <h2 class="news-title">Lastest News and Resources</h2>
+    <p class="news-sub">See the developments that have occurred to Skillines in the world</p>
+  </div>
+
+  <div class="news-body">
+
+    <!-- LEFT: big featured article -->
+    <div class="news-featured">
+      <div class="news-featured-img">
+        <img src="img4.jpg" alt="News featured" />
+      </div>
+      <div class="news-tag">NEWS</div>
+      <h3 class="news-featured-title">Class adds $30 million to its balance sheet for a Zoom-friendly edtech solution</h3>
+      <p class="news-featured-desc">Class, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...</p>
+      <a href="#" class="news-read-more">Read more</a>
+    </div>
+
+    <!-- RIGHT: 3 small articles -->
+    <div class="news-list">
+
+      <div class="news-item">
+        <div class="news-item-img">
+          <img src="img1.jpg" alt="News 1" />
+          <div class="news-item-tag">PRESS RELEASE</div>
+        </div>
+        <div class="news-item-content">
+          <h4 class="news-item-title">Class Technologies Inc. Closes $30 Million Series A Financing to Meet High Demand</h4>
+          <p class="news-item-desc">Class Technologies Inc., the company that created Class,...</p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-item-img">
+          <img src="img2.jpg" alt="News 2" />
+          <div class="news-item-tag">NEWS</div>
+        </div>
+        <div class="news-item-content">
+          <h4 class="news-item-title">Zoom's earliest investors are betting millions on a better Zoom for schools</h4>
+          <p class="news-item-desc">Zoom was never created to be a consumer product. Nonetheless, the...</p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-item-img">
+          <img src="img3.jpg" alt="News 3" />
+          <div class="news-item-tag">NEWS</div>
+        </div>
+        <div class="news-item-content">
+          <h4 class="news-item-title">Former Blackboard CEO Raises $16M to Bring LMS Features to Zoom Classrooms</h4>
+          <p class="news-item-desc">This year, investors have reaped big financial returns from betting on Zoom...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .news {
+    background: #fff;
+    padding: 80px 120px 100px;
+  }
+
+  /* ── HEADER ── */
+  .news-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .news-title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #2F327D;
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+
+  .news-sub {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.8;
+  }
+
+  /* ── BODY ── */
+  .news-body {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  /* ── LEFT FEATURED ── */
+  .news-featured {
+    width: 460px;
+    flex-shrink: 0;
+  }
+
+  .news-featured-img {
+    width: 100%;
+    height: 340px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #C4C4C4;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .news-featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .news-featured-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #171B41;
+    opacity: 0.1;
+    border-radius: 20px;
+  }
+
+  .news-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #F4C467;
+    border-radius: 80px;
+    padding: 4px 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #252641;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+
+  .news-featured-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #252641;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  .news-featured-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+
+  .news-read-more {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #696984;
+    letter-spacing: 0.02em;
+    text-decoration: underline;
+  }
+
+  /* ── RIGHT LIST ── */
+  .news-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .news-item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .news-item-img {
+    width: 200px;
+    height: 160px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #C4C4C4;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .news-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .news-item-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #171B41;
+    opacity: 0.1;
+    border-radius: 20px;
+  }
+
+  .news-item-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F4C467;
+    border-radius: 80px;
+    padding: 3px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #252641;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  .news-item-content {
+    flex: 1;
+  }
+
+  .news-item-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #252641;
+    line-height: 1.8;
+    margin-bottom: 10px;
+  }
+
+  .news-item-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+  }
+</style>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+
+  <!-- Logo row -->
+  <div class="footer-logo-row">
+    <div class="footer-logo">
+      <div class="footer-diamond">
+        <span>S</span>
+      </div>
+      <span class="footer-logo-text">Skilline</span>
+    </div>
+    <div class="footer-divider-v"></div>
+    <span class="footer-tagline">Virtual Class<br>for Zoom</span>
+  </div>
+
+  <!-- Newsletter -->
+  <p class="footer-newsletter-title">Subscribe to get our Newsletter</p>
+
+  <div class="footer-form">
+    <input class="footer-input" type="email" placeholder="Your Email" />
+    <button class="footer-subscribe-btn">Subscribe</button>
+  </div>
+
+  <!-- Links -->
+  <div class="footer-links">
+    <a href="#" class="footer-link">Careers</a>
+    <div class="footer-link-div"></div>
+    <a href="#" class="footer-link">Privacy Policy</a>
+    <div class="footer-link-div"></div>
+    <a href="#" class="footer-link">Terms &amp; Conditions</a>
+  </div>
+
+  <!-- Copyright -->
+  <p class="footer-copy">© 2021 Class Technologies Inc.</p>
+
+</footer>
+
+<style>
+  .footer {
+    background: #252641;
+    width: 100%;
+    padding: 60px 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── LOGO ROW ── */
+  .footer-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 52px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-diamond {
+    width: 66px;
+    height: 66px;
+    border: 2px solid #26C1F2;
+    border-radius: 10px;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .footer-diamond span {
+    transform: rotate(-45deg);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-divider-v {
+    width: 1px;
+    height: 66px;
+    background: #626381;
+    flex-shrink: 0;
+  }
+
+  .footer-tagline {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+  }
+
+  /* ── NEWSLETTER ── */
+  .footer-newsletter-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #B2B3CF;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  /* ── FORM ── */
+  .footer-form {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .footer-input {
+    width: 400px;
+    height: 60px;
+    background: transparent;
+    border: 1px solid #83839A;
+    border-radius: 80px;
+    padding: 0 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #83839A;
+    letter-spacing: 0.04em;
+    outline: none;
+  }
+
+  .footer-input::placeholder {
+    color: #83839A;
+  }
+
+  .footer-subscribe-btn {
+    width: 179px;
+    height: 60px;
+    background: linear-gradient(105.5deg, #545AE7 19.57%, #393FCF 78.85%);
+    border-radius: 60px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 0.02em;
+    box-shadow: 0 10px 27px rgba(84, 90, 232, 0.35);
+  }
+
+  /* ── LINKS ── */
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #B2B3CF;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .footer-link-div {
+    width: 1px;
+    height: 17px;
+    background: #626381;
+    flex-shrink: 0;
+  }
+
+  /* ── COPYRIGHT ── */
+  .footer-copy {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #B2B3CF;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+</style>
+
+<style>
+  .integ {
+    background: #fff;
+    padding: 80px 120px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  /* ── LEFT: 2x2 logo grid ── */
+  .integ-left {
+    flex-shrink: 0;
+    width: 480px;
+  }
+
+  .integ-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 40px 60px;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .integ-logo-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .integ-logo {
+    width: auto;
+    max-width: 160px;
+    max-height: 140px;
+    object-fit: contain;
+  }
+
+  .integ-logo--dropbox {
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  .integ-logo--teams {
+    max-width: 140px;
+    max-height: 140px;
+  }
+
+  .integ-logo-label {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #696984;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── RIGHT: text content ── */
+  .integ-right {
+    flex: 1;
+  }
+
+  .integ-label-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .integ-line {
+    width: 80px;
+    height: 1px;
+    background: #525596;
+    flex-shrink: 0;
+  }
+
+  .integ-label {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #525596;
+    letter-spacing: 0.2em;
+  }
+
+  .integ-title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #2F327D;
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 24px;
+  }
+
+  .integ-orange { color: #F48C06; }
+
+  .integ-sub {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 40px;
+  }
+
+  .integ-btn {
+    width: 280px;
+    height: 80px;
+    background: transparent;
+    border: 1px solid #F48C06;
+    border-radius: 80px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #F48C06;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .integ-btn:hover {
+    background: #F48C06;
+    color: #fff;
+  }
+</style>
+
+<style>
+  .ood {
+    background: #fff;
+    padding: 80px 120px 20px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    overflow: hidden;
+  }
+
+  /* ── LEFT ── */
+  .ood-left {
+    position: relative;
+    width: 620px;
+    height: 500px;
+    flex-shrink: 0;
+  }
+
+  /* Back blurred window */
+  .ood-back-window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 530px;
+    height: 300px;
+    background: #F4F4F4;
+    border-radius: 15px;
+    filter: blur(1.5px);
+    opacity: 0.7;
+    z-index: 1;
+  }
+
+  .ood-back-bar {
+    background: #EAEAEA;
+    border-radius: 15px 15px 0 0;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  .ood-back-grid {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    height: calc(100% - 22px);
+  }
+
+  .ood-back-cell {
+    flex: 1;
+    background: #C4C4C4;
+    border-radius: 8px;
+    opacity: 0.5;
+  }
+
+  .ood-back-cell--teacher {
+    background: #bbb;
+  }
+
+  /* Blue ring */
+  .ood-ring {
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    width: 92px;
+    height: 92px;
+    border: 15px solid #23BDEE;
+    border-radius: 50%;
+    z-index: 5;
+  }
+
+  /* Orange triangle */
+  .ood-triangle {
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 24px solid #FBA333;
+    transform: rotate(-18deg);
+    z-index: 5;
+  }
+
+  /* Blue rectangle (left edge) */
+  .ood-blue-rect {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    width: 160px;
+    height: 156px;
+    background: #73BCFF;
+    border-radius: 15px;
+    z-index: 1;
+  }
+
+  /* Badge */
+  .ood-badge {
+    position: absolute;
+    top: 115px;
+    left: 15px;
+    z-index: 6;
+  }
+
+  .ood-badge-outer {
+    width: 82px;
+    height: 82px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 50%;
+    box-shadow: 0 8px 36px rgba(40,43,111,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ood-badge-inner {
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 8px 36px rgba(40,43,111,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Front card (main) */
+  .ood-front-window {
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    right: 0;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 38px rgba(47,50,125,0.1);
+    z-index: 4;
+    overflow: hidden;
+  }
+
+  .ood-front-bar {
+    background: #EAEAEA;
+    border-radius: 15px 15px 0 0;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  .ood-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* Two video cells */
+  .ood-videos {
+    display: flex;
+    align-items: stretch;
+    padding: 16px 16px 0;
+    gap: 0;
+  }
+
+  .ood-video {
+    position: relative;
+    flex: 1;
+    height: 165px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #C4C4C4;
+  }
+
+  .ood-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  .ood-divider {
+    width: 1px;
+    background: #D5E2FB;
+    margin: 0 12px;
+    align-self: stretch;
+  }
+
+  /* Name bar overlay on Patricia's cell */
+  .ood-name-bar {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    background: rgba(201,211,231,0.45);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px;
+  }
+
+  .ood-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .ood-bars span {
+    width: 2.5px;
+    background: #fff;
+    border-radius: 1px;
+    display: block;
+  }
+
+  .ood-name-text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  /* Footer */
+  .ood-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px 18px;
+  }
+
+  .ood-private-label {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #696984;
+    margin-bottom: 4px;
+  }
+
+  .ood-private-sub {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #A8A8B6;
+  }
+
+  .ood-end-btn {
+    background: linear-gradient(105.5deg, #F55454 19.57%, #E6422B 78.85%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(235,73,58,0.35);
+    white-space: nowrap;
+  }
+
+  /* ── RIGHT ── */
+  .ood-right {
+    flex: 1;
+  }
+
+  .ood-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  .ood-dark   { color: #2F327D; }
+  .ood-orange { color: #F48C06; }
+
+  .ood-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    color: #696984;
+    max-width: 480px;
+    margin-bottom: 48px;
+  }
+
+  /* See more features */
+  .ood-more-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 0 80px 0;
+  }
+
+  .ood-more-btn {
+    height: 58px;
+    padding: 0 40px;
+    border-radius: 80px;
+    border: 2px solid #F48C06;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #F48C06;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .ood-more-btn:hover {
+    background: #F48C06;
+    color: #fff;
+  }
+</style>
+
+<style>
+  .mgmt {
+    background: #fff;
+    padding: 80px 120px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  /* LEFT */
+  .mgmt-left {
+    width: 380px;
+    flex-shrink: 0;
+  }
+
+  .mgmt-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.55;
+    margin-bottom: 22px;
+    color: #2F327D;
+  }
+
+  .mgmt-orange { color: #F48C06; }
+
+  .mgmt-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #696984;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+  }
+
+  /* RIGHT */
+  .mgmt-right {
+    position: relative;
+    flex: 1;
+    height: 480px;
+  }
+
+  /* blue circle decorations */
+  .mgmt-circ {
+    position: absolute;
+    border-radius: 50%;
+    background: #9FD7FF;
+    z-index: 0;
+  }
+  .mgmt-circ--lg { width: 44px; height: 44px; top: -10px; right: 40px; }
+  .mgmt-circ--sm { width: 20px; height: 20px; top: 10px;  right: 0px;  }
+
+  /* star badge */
+  .mgmt-star-badge {
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    z-index: 4;
+  }
+  .mgmt-star-outer {
+    width: 80px; height: 80px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    box-shadow: 0 10px 48px rgba(40,43,111,0.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mgmt-star-inner {
+    width: 58px; height: 58px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 10px 48px rgba(40,43,111,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+  }
+
+  /* book badge */
+  .mgmt-book-badge {
+    position: absolute;
+    top: 60px;
+    right: -10px;
+    z-index: 4;
+  }
+  .mgmt-book-outer {
+    width: 70px; height: 70px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    box-shadow: 0 10px 48px rgba(40,43,111,0.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mgmt-book-inner {
+    width: 52px; height: 52px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 10px 48px rgba(40,43,111,0.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* main card */
+  .mgmt-card {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    right: 0;
+    bottom: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 48px rgba(40,43,111,0.1);
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  .mgmt-card-header {
+    background: #54AFF0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F2FDFF;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .mgmt-card-body {
+    padding: 28px 28px 24px;
+  }
+
+  .mgmt-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .mgmt-bar {
+    height: 28px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .mgmt-bar--cyan  { background: #3AC6F2; }
+  .mgmt-bar--blue  { background: #3189EF; }
+  .mgmt-bar--green { background: #68F146; }
+  .mgmt-bar--red   { background: #F13C3C; }
+
+  .mgmt-avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
+    margin: 0 -10px;
+    z-index: 3;
+  }
+
+  .mgmt-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    display: block;
+  }
+
+  .mgmt-star-mini {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    font-size: 16px;
+  }
+
+  .mgmt-score {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 6px 18px;
+    border-radius: 60px;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+
+  .mgmt-export {
+    background: linear-gradient(105.5deg, #545AE7 19.57%, #393FCF 78.85%);
+    color: #fff;
+    border: none;
+    border-radius: 60px;
+    padding: 14px 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 10px 27px rgba(84,90,232,0.35);
+  }
+
+  /* wave lines */
+  .mgmt-waves {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mgmt-wave {
+    height: 3px;
+    border-radius: 3px;
+    background: none;
+    border: 2.5px solid #B2C4F0;
+  }
+  .mgmt-wave:nth-child(1) { width: 80px; }
+  .mgmt-wave:nth-child(2) { width: 80px; }
+  .mgmt-wave:nth-child(3) { width: 80px; }
+
+  /* blue rect deco bottom left */
+  .mgmt-rect-deco {
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    width: 44px;
+    height: 180px;
+    background: #D3E7FF;
+    border-radius: 20px;
+    z-index: 1;
+  }
+</style>
+
+</body>
+</html>
